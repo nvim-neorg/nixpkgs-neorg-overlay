@@ -2,7 +2,7 @@
 
 This is a Nixpkgs overlay that gives Nix users access to unstable versions of Neorg and its associated projects.
 
-Nixpkgs already packages Neorg and the NFF Tree-sitter parser, however those are updated very rarely. This is a problem for rapidly growing projects such as Neorg and can cause the plugin and parser to go out-of-sync. This overlay is updated automatically and, apart from the base plugin and TS parser, provides additional Neorg-related packages.
+Nixpkgs already packages Neorg and the NFF Tree-sitter parser, however those are updated very rarely. This is a problem for rapidly growing projects such as Neorg and can cause the plugin and parser to go out-of-sync. This overlay is updated automatically every 2 hours and, apart from the base plugin and TS parser, provides additional Neorg-related packages.
 
 ## Installation
 
@@ -19,7 +19,7 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
   outputs = { self, nixpkgs, home-manager, neorg, ... }: {
     nixosConfigurations.machine = nixpkgs.lib.nixosSystem {
@@ -27,7 +27,7 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
       modules = [
         home-manager.nixosModules.home-manager
         {
-          nixpkgs.overlays = [ neorg.overlay ];
+          nixpkgs.overlays = [ neorg-overlay.overlay ];
           home-manager.users.bandithedoge = {
             programs.neovim = {
               enable = true;
@@ -69,8 +69,8 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
 
 ## Package list
 
-- `vimPlugins.neorg`
-- `vimPlugins.neorg-telescope`
-- `tree-sitter-grammars.norg`
-- `tree-sitter-grammars.norg-meta`
-- `tree-sitter-grammars.norg-table`
+- [`vimPlugins.neorg`](https://github.com/nvim-neorg/neorg)
+- [`vimPlugins.neorg-telescope`](https://github.com/nvim-neorg/neorg-telescope)
+- [`tree-sitter-grammars.norg`](https://github.com/nvim-neorg/tree-sitter-norg)
+- [`tree-sitter-grammars.norg-meta`](https://github.com/nvim-neorg/tree-sitter-norg-meta)
+- [`tree-sitter-grammars.norg-table`](https://github.com/nvim-neorg/tree-sitter-norg-table)
