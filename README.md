@@ -32,9 +32,14 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
             programs.neovim = {
               enable = true;
               plugins = with pkgs.vimPlugins; [
-                # If you want to install all available parsers, the following also works:
+                # Installing all parsers including up-to-date Neorg parsers is a little bit more involved than usual:
+                # (nvim-treesitter.withPlugins (_: (builtins.filter pkgs.lib.isDerivation (builtins.attrValues pkgs.tree-sitter-grammars))))
+                # 
+                # The following will not install Neorg parsers:
                 # (nvim-treesitter.withPlugins (p: builtins.attrValues p))
-                # This includes the meta and table parsers, too.
+                #
+                # The following will try to install Neorg parsers as well but is more prone to compilation errors:
+                # (nvim-treesitter.withPlugins (_: pkgs.tree-sitter-grammars.allGrammars))
                 (nvim-treesitter.withPlugins (p: with p; [
                   # Keep calm and don't :TSInstall
                   tree-sitter-lua
@@ -69,8 +74,8 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
 
 ## Package list
 
-- [`vimPlugins.neorg`](https://github.com/nvim-neorg/neorg)
-- [`vimPlugins.neorg-telescope`](https://github.com/nvim-neorg/neorg-telescope)
-- [`tree-sitter-grammars.norg`](https://github.com/nvim-neorg/tree-sitter-norg)
-- [`tree-sitter-grammars.norg-meta`](https://github.com/nvim-neorg/tree-sitter-norg-meta)
-- [`tree-sitter-grammars.norg-table`](https://github.com/nvim-neorg/tree-sitter-norg-table)
+-   [`vimPlugins.neorg`](https://github.com/nvim-neorg/neorg)
+-   [`vimPlugins.neorg-telescope`](https://github.com/nvim-neorg/neorg-telescope)
+-   [`tree-sitter-grammars.norg`](https://github.com/nvim-neorg/tree-sitter-norg)
+-   [`tree-sitter-grammars.norg-meta`](https://github.com/nvim-neorg/tree-sitter-norg-meta)
+-   [`tree-sitter-grammars.norg-table`](https://github.com/nvim-neorg/tree-sitter-norg-table)
