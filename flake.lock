@@ -96,11 +96,11 @@
     "neorg": {
       "flake": false,
       "locked": {
-        "lastModified": 1660243416,
-        "narHash": "sha256-nMrgajasWMeDlG1EX5o7n/VKCxtTx4L4NEbNtj46KSE=",
+        "lastModified": 1660491844,
+        "narHash": "sha256-DQqsw3LNoVvcbctIAHTTyn+TfO7xbvhVxZgXMF16sgo=",
         "owner": "nvim-neorg",
         "repo": "neorg",
-        "rev": "9504f571f24e4ae783d27b9ae9f2719b3487a8ce",
+        "rev": "9b317dd720d185deaf8b6947197c3dd0e7518d61",
         "type": "github"
       },
       "original": {
@@ -112,11 +112,11 @@
     "neorg-telescope": {
       "flake": false,
       "locked": {
-        "lastModified": 1660243416,
-        "narHash": "sha256-nMrgajasWMeDlG1EX5o7n/VKCxtTx4L4NEbNtj46KSE=",
+        "lastModified": 1660491844,
+        "narHash": "sha256-DQqsw3LNoVvcbctIAHTTyn+TfO7xbvhVxZgXMF16sgo=",
         "owner": "nvim-neorg",
         "repo": "neorg",
-        "rev": "9504f571f24e4ae783d27b9ae9f2719b3487a8ce",
+        "rev": "9b317dd720d185deaf8b6947197c3dd0e7518d61",
         "type": "github"
       },
       "original": {
