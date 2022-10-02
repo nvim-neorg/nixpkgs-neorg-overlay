@@ -27,12 +27,14 @@
       {
         vimPlugins = prev.vimPlugins // {
           neorg = prev.vimUtils.buildVimPluginFrom2Nix {
-            name = "neorg";
+            pname = "neorg";
+            version = neorg.rev;
             src = neorg;
             buildInputs = [ prev.vimPlugins.plenary-nvim ];
           };
           neorg-telescope = prev.vimUtils.buildVimPluginFrom2Nix {
-            name = "neorg-telescope";
+            pname = "neorg-telescope";
+            version = neorg-telescope.rev;
             src = neorg-telescope;
             buildInputs = [ prev.vimPlugins.telescope-nvim final.vimPlugins.neorg ];
           };
