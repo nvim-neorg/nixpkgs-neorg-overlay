@@ -4,14 +4,13 @@
 
     norg.url = "github:nvim-neorg/tree-sitter-norg";
     norg-meta.url = "github:nvim-neorg/tree-sitter-norg-meta";
-    norg-table.url = "github:nvim-neorg/tree-sitter-norg-table";
 
     neorg = {
       url = "github:nvim-neorg/neorg";
       flake = false;
     };
     neorg-telescope = {
-      url = "github:nvim-neorg/neorg";
+      url = "github:nvim-neorg/neorg-telescope";
       flake = false;
     };
   };
@@ -19,9 +18,8 @@
     overlay = final: prev:
       with inputs; let
         grammars = {
-          tree-sitter-norg = norg.defaultPackage;
-          tree-sitter-norg-meta = norg-meta.defaultPackage;
-          tree-sitter-norg-table = norg-table.defaultPackage;
+          tree-sitter-norg = norg.defaultPackage.${final.system};
+          tree-sitter-norg-meta = norg-meta.defaultPackage.${final.system};
         };
       in
       {
