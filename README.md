@@ -32,21 +32,26 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
             programs.neovim = {
               enable = true;
               plugins = with pkgs.vimPlugins; [
-                # Installing all parsers including up-to-date Neorg parsers is a little bit more involved than usual:
-                # (nvim-treesitter.withPlugins (_: (builtins.filter pkgs.lib.isDerivation (builtins.attrValues pkgs.tree-sitter-grammars))))
-                # 
-                # The following will not install Neorg parsers:
-                # (nvim-treesitter.withPlugins (p: builtins.attrValues p))
+                neorg
+
+                # optional
+                neorg-telescope
+
+                # optional — only if you want additional grammars besides norg and
+                # norg_meta, otherwise auto-required.
                 #
-                # The following will try to install Neorg parsers as well but is more prone to compilation errors:
-                # (nvim-treesitter.withPlugins (_: pkgs.tree-sitter-grammars.allGrammars))
+                # N.b.: Don't use plain nvim-treesitter as it would result in no
+                # grammars getting installed, always the withPlugins function.
+                # The minimal form is nvim-treesitter.withPlugins (_: [ ]) — the norg
+                # grammars are added automatically.
+                #
+                # For all available grammars, nvim-treesitter.withAllGrammars or the
+                # equivalent nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars)
+                # can be used.
                 (nvim-treesitter.withPlugins (p: with p; [
                   # Keep calm and don't :TSInstall
                   tree-sitter-lua
-                  tree-sitter-norg
-                  tree-sitter-norg-meta
                 ]))
-                neorg
               ];
               extraConfig = ''
                 lua << EOF
@@ -76,6 +81,5 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
 
 -   [`vimPlugins.neorg`](https://github.com/nvim-neorg/neorg)
 -   [`vimPlugins.neorg-telescope`](https://github.com/nvim-neorg/neorg-telescope)
--   [`tree-sitter-grammars.norg`](https://github.com/nvim-neorg/tree-sitter-norg)
--   [`tree-sitter-grammars.norg-meta`](https://github.com/nvim-neorg/tree-sitter-norg-meta)
--   [`tree-sitter-grammars.norg-table`](https://github.com/nvim-neorg/tree-sitter-norg-table)
+-   [`vimPlugins.nvim-treesitter.builtGrammars.tree-sitter-norg`](https://github.com/nvim-neorg/tree-sitter-norg)
+-   [`vimPlugins.nvim-treesitter.builtGrammars.tree-sitter-norg-meta`](https://github.com/nvim-neorg/tree-sitter-norg-meta)
