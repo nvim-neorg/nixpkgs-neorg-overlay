@@ -27,7 +27,7 @@ The following minimal NixOS [flake](https://nixos.wiki/wiki/Flakes) configures N
       modules = [
         home-manager.nixosModules.home-manager
         {
-          nixpkgs.overlays = [ neorg-overlay.overlay ];
+          nixpkgs.overlays = [ neorg-overlay.overlays.default ];
           home-manager.users.bandithedoge = {
             programs.neovim = {
               enable = true;

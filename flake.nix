@@ -65,6 +65,8 @@
             };
           });
         };
+      # https://github.com/NixOS/nix/issues/5532
+      overlay = nixpkgs.lib.warn "`neorg-overlay.overlay` is deprecated; use `neorg-overlay.overlays.default` instead" self.overlays.default;
     } // (flake-utils.lib.eachDefaultSystem (system: {
       checks = import ./tests.nix
         (import nixpkgs {
