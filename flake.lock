@@ -164,11 +164,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1670948026,
-        "narHash": "sha256-ndyBxfhk0IGaiKIb95wHdd++hAQBxYG7chG6ftoHQNA=",
+        "lastModified": 1672582520,
+        "narHash": "sha256-kv3UiJUqMSF1qd3r4OCWomVTHTYjwX/EBRWm8mOSdwg=",
         "owner": "nvim-neorg",
         "repo": "tree-sitter-norg",
-        "rev": "600874e0825a62c3822ff04e5d0efbac8d7e380c",
+        "rev": "d7a466e182a532065a559dbfc7a847271d5e9c29",
         "type": "github"
       },
       "original": {
