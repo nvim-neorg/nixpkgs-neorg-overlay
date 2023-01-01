@@ -4,7 +4,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    norg.url = "github:nvim-neorg/tree-sitter-norg";
+    norg.url = "github:nvim-neorg/tree-sitter-norg/dev";
     norg-meta.url = "github:nvim-neorg/tree-sitter-norg-meta";
 
     neorg = {
