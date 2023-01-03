@@ -19,6 +19,8 @@ jobs:
 
       - name: Update flake
         run: "nix flake update"
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7.5.0
