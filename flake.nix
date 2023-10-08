@@ -51,13 +51,13 @@
                     inherit builtGrammars allGrammars withPlugins withAllGrammars;
                   };
                 });
-            neorg = final.vimUtils.buildVimPluginFrom2Nix {
+            neorg = final.vimUtils.buildVimPlugin {
               pname = "neorg";
               version = neorg.rev;
               src = neorg;
               dependencies = [ f.plenary-nvim (f.nvim-treesitter.withPlugins (_: [ ])) ];
             };
-            neorg-telescope = final.vimUtils.buildVimPluginFrom2Nix {
+            neorg-telescope = final.vimUtils.buildVimPlugin {
               pname = "neorg-telescope";
               version = neorg-telescope.rev;
               src = neorg-telescope;
