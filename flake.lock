@@ -99,11 +99,11 @@
     "neorg-telescope": {
       "flake": false,
       "locked": {
-        "lastModified": 1698320305,
-        "narHash": "sha256-BOiIYZtRoKJP9BDmNf1doDQs09hRIVM2W8qw0sSDU18=",
+        "lastModified": 1699802939,
+        "narHash": "sha256-pgM6uEZGjC4jaqcdQwxhsgUNE/sRqJ++nX+WEvkmphY=",
         "owner": "nvim-neorg",
         "repo": "neorg-telescope",
-        "rev": "c3d25cc46145fba82c410245fb5bea66945eb1de",
+        "rev": "6a7a677c40fa3c348924a4e2a06a513e0b34c056",
         "type": "github"
       },
       "original": {
