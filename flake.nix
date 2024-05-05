@@ -48,8 +48,12 @@
             withAllGrammars = withPlugins (_: allGrammars);
           in
             p.nvim-treesitter.overrideAttrs (a: {
-              passthru = {
+              passthru = a.passthru // {
                 inherit builtGrammars allGrammars withPlugins withAllGrammars;
+		grammarPlugins = a.passthru.grammarPlugins // {
+			norg = norgGrammars.tree-sitter-norg;
+			norg-meta = norgGrammars.tree-sitter-norg-meta;
+		};
               };
             });
           lua-utils-nvim = final.vimUtils.buildVimPlugin {
