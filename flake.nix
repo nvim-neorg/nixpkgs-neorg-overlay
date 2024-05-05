@@ -52,17 +52,33 @@
                 inherit builtGrammars allGrammars withPlugins withAllGrammars;
               };
             });
+          lua-utils-nvim = final.vimUtils.buildVimPlugin {
+            inherit (prev.luaPackages.lua-utils-nvim) pname version src;
+          };
+          pathlib-nvim = final.vimUtils.buildVimPlugin {
+            inherit (prev.luaPackages.pathlib-nvim) pname version src;
+          };
           neorg = final.vimUtils.buildVimPlugin {
             pname = "neorg";
             version = neorg.rev;
             src = neorg;
-            dependencies = [f.plenary-nvim (f.nvim-treesitter.withPlugins (_: []))];
+            dependencies = [
+              (f.nvim-treesitter.withPlugins (_: []))
+              f.lua-utils-nvim
+              f.nui-nvim
+              f.nvim-nio
+              f.pathlib-nvim
+              f.plenary-nvim
+            ];
           };
           neorg-telescope = final.vimUtils.buildVimPlugin {
             pname = "neorg-telescope";
             version = neorg-telescope.rev;
             src = neorg-telescope;
-            dependencies = [f.telescope-nvim f.neorg];
+            dependencies = [
+              f.telescope-nvim
+              f.neorg
+            ];
           };
         });
       };
