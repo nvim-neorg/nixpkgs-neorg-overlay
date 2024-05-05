@@ -78,7 +78,7 @@ pkgs: let
     '';
   tests = let
     pluginMarkers = {
-      neorg = "ftdetect/norg.vim";
+      neorg = "ftdetect/norg.lua";
       plenary = "plugin/plenary.vim";
       nvim-treesitter = "plugin/nvim-treesitter.lua";
       telescope = "plugin/telescope.lua";
