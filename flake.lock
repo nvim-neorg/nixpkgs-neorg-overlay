@@ -83,11 +83,11 @@
     "neorg": {
       "flake": false,
       "locked": {
-        "lastModified": 1721142742,
-        "narHash": "sha256-GalMCFmUM+7igh5IAnrNAkj0k8O0mIo66sltXY37Wvc=",
+        "lastModified": 1721164740,
+        "narHash": "sha256-UQfvpu+8spUE5AYD0VLIQ/ym+Kh7iBxTnpp97Xqt1lA=",
         "owner": "nvim-neorg",
         "repo": "neorg",
-        "rev": "8ddc74ab476f2e33ee9faf5e94ff1e0cd7ff690f",
+        "rev": "97e13b7449d5e4f48a984d2a06ea8d16c5e38963",
         "type": "github"
       },
       "original": {
