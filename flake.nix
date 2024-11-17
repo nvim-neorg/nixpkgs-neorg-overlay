@@ -51,8 +51,8 @@
               passthru = a.passthru // {
                 inherit builtGrammars allGrammars withPlugins withAllGrammars;
 		grammarPlugins = a.passthru.grammarPlugins // {
-			norg = norgGrammars.tree-sitter-norg;
-			norg-meta = norgGrammars.tree-sitter-norg-meta;
+			norg = p.nvim-treesitter.grammarToPlugin norgGrammars.tree-sitter-norg;
+			norg-meta = p.nvim-treesitter.grammarToPlugin norgGrammars.tree-sitter-norg-meta;
 		};
               };
             });
