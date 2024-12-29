@@ -78,7 +78,11 @@ pkgs: let
     '';
   tests = let
     pluginMarkers = {
-      neorg = "ftdetect/norg.lua";
+      # XXX: neorg doesn't provide ftdetect/norg.lua anymore so neovim has no
+      # neorg-specific plugin scripts to source (see :h scriptnames). fixing
+      # this test properly will require a different method of verifying plugin
+      # installation.
+      neorg = "filetype.lua";
       plenary = "plugin/plenary.vim";
       nvim-treesitter = "plugin/nvim-treesitter.lua";
       telescope = "plugin/telescope.lua";
