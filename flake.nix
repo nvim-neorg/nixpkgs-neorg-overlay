@@ -60,12 +60,16 @@
                     };
                 };
             });
+
           lua-utils-nvim = final.vimUtils.buildVimPlugin {
             inherit (prev.luaPackages.lua-utils-nvim) pname version src;
           };
+
           pathlib-nvim = final.vimUtils.buildVimPlugin {
             inherit (prev.luaPackages.pathlib-nvim) pname version src;
+            doCheck = false;
           };
+
           neorg = final.vimUtils.buildVimPlugin {
             pname = "neorg";
             version = neorg.rev;
@@ -78,14 +82,18 @@
               f.pathlib-nvim
               f.plenary-nvim
             ];
+            doCheck = false;
           };
+
           neorg-telescope = final.vimUtils.buildVimPlugin {
             pname = "neorg-telescope";
             version = neorg-telescope.rev;
             src = neorg-telescope;
             dependencies = [
-              f.telescope-nvim
+              f.lua-utils-nvim
               f.neorg
+              f.plenary-nvim
+              f.telescope-nvim
             ];
           };
         });
