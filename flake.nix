@@ -33,8 +33,8 @@
         vimPlugins = prev.vimPlugins.extend (f: p: {
           nvim-treesitter = let
             norgGrammars = {
-              tree-sitter-norg = norg.defaultPackage.${final.system};
-              tree-sitter-norg-meta = norg-meta.defaultPackage.${final.system};
+              tree-sitter-norg = norg.defaultPackage.${final.stdenv.hostPlatform.system};
+              tree-sitter-norg-meta = norg-meta.defaultPackage.${final.stdenv.hostPlatform.system};
             };
             builtGrammars = (filterAttrs (_: isDerivation) p.nvim-treesitter.builtGrammars) // norgGrammars;
             allGrammars = attrValues builtGrammars;
